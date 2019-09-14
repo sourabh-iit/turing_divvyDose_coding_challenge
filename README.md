@@ -6,7 +6,9 @@ pip install -r requirements.txt
 ```
 
 ## Running the code
-
+``` 
+set environment variables GITHUB_USERNAME and GITHUB_PASSWORD 
+```
 
 
 ### Spin up the service
@@ -19,8 +21,5 @@ python -m run
 ### Making Requests
 
 ```
-curl -i "http://127.0.0.1:5000/merge-profiles/<team/organization>"
+curl -H "Content-Type: application/json" -X GET http://localhost:5000/api/merge-profiles/mailchimp
 ```
-
-
-## What'd I'd like to improve on...
