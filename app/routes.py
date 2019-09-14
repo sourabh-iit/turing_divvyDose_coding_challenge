@@ -1,17 +1,10 @@
-import logging
+from flask_restful import Api
+from flask import Blueprint
 
-import flask
-from flask import Response
+from .views import MergeProfile
 
-app = flask.Flask("user_profiles_api")
-logger = flask.logging.create_logger(app)
-logger.setLevel(logging.INFO)
+api_bp = Blueprint('api', __name__)
+api = Api(api_bp)
 
-
-@app.route("/health-check", methods=["GET"])
-def health_check():
-    """
-    Endpoint to health check API
-    """
-    app.logger.info("Health Check!")
-    return Response("All Good!", status=200)
+# Routes
+api.add_resource(MergeProfile, '/merge-profiles/<profile_name>')
